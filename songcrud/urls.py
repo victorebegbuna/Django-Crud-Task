@@ -22,7 +22,8 @@ urlpatterns = [
     path("api/", include("musicapp.urls")),
     path("api/song/", include("musicapp.urls")),
     path("api/artiste/", include("musicapp.urls")),
-    #path('musicapp/', include('musicapp.urls')),
-    #path('api-auth/', include('rest_framework.urls')),
+    path('musicapp/', include('musicapp.urls')),
+    
+    
 ]
 

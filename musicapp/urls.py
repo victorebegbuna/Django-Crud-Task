@@ -1,27 +1,12 @@
 from django.urls import path
 
-#from songcrud.musicapp.models import Artiste
+from django.urls import path
 
-#from songcrud.musicapp.models import Artiste
-from .import views
-from rest_framework.routers import DefaultRouter
-from musicapp.views import ArtisteViewSet
-from musicapp.views import SongViewSet
-
-router = DefaultRouter()
-router.register(r'Artiste', ArtisteViewSet, basename='Artiste')
-router = DefaultRouter()
-router.register(r'Song', SongViewSet, basename='Song')
-
-
-
-#urlpatterns = [
-    #path("", views.index, name="index")
-#]
-
+from .views import SongList, SongDetail, ArtisteList, ArtisteDetail
 
 urlpatterns = [
-    path("api-auth", views.index, name="index")
-] + router.urls
-
-#127.0.0.1:8000/Artiste
+    path("song/<int:pk>/", SongDetail.as_view(), name="song_detail"),
+    path("", SongList.as_view(), name="song_list"),
+    path("artiste/<int:pk>/", ArtisteDetail.as_view(), name="artiste_details"),
+    path("artiste/", ArtisteList.as_view(), name="artiste_list"),
+]
